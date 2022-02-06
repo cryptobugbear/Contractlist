@@ -29,7 +29,7 @@ export default function handler(
             found = true;
             
             response.status(200).json({
-              body: ethers.utils.formatBytes32String( contractAddress ),
+              body: contractAddress,
               query: request.query,
               cookies: request.cookies,
             });

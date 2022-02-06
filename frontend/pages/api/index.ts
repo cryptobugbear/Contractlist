@@ -2,6 +2,7 @@
 
 import { NextApiRequest, NextApiResponse } from 'next';
 import contracts from '../../public/contracts.json';
+import { ethers } from "ethers";
 
 export default function handler(
   request: NextApiRequest,
@@ -28,7 +29,7 @@ export default function handler(
             found = true;
             
             response.status(200).json({
-              body: contractAddress,
+              body: ethers.utils.formatBytes32String( contractAddress ),
               query: request.query,
               cookies: request.cookies,
             });
